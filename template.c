@@ -1,10 +1,4 @@
 /*
-binary_clock by Ben Kaden
-working condition 08.01.25
-includes sleepmode, turned off peripherals and scaleable PWM
-*/
-
-/*
 !! adjust to your need: !!
 PWM katodes on PB1/PB2
 PWM/sleep button on PD7
