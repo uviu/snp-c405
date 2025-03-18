@@ -29,11 +29,16 @@ const uint8_t brightness_levels[] = {254, 248, 156, 0}; // Brightness levels
 
 // Timer2 is used for timekeeping (adjust as needed)
 void setup_timer2() {
+    ASSR |= (1 << AS2);
     // Activate asynchronous mode if needed; using internal clock here
     TCCR2A = 0;                      // Normal mode
     TCCR2B = (1 << CS22) | (1 << CS20); // Prescaler = 128
     TIMSK2 = (1 << TOIE2);           // Enable Timer2 Overflow interrupt
     // (If using an external clock, wait for clock stabilization)
+    // Wait for the external clock to stabilize
+    while (ASSR & ((1 << TCR2BUB) | (1 << TCR2AUB) | (1 << OCR2AUB) | (1 << TCN2UB))) {
+      // Wait until all update busy flags are cleared
+    }
 }
 
 // Timer1 drives PWM on PB1 (minutes cathodes) and PB2 (hours cathodes)
