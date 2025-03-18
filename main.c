@@ -151,7 +151,7 @@ ISR(INT1_vect) {
 
 // Optionally, use sleep mode to save power.
 void enter_sleep() {
-    set_sleep_mode(SLEEP_MODE_PWR_SAVE);
+    set_sleep_mode(SLEEP_MODE_IDLE);
     sleep_enable();
     sleep_cpu();
     sleep_disable();
