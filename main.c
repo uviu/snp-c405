@@ -68,7 +68,9 @@ void update_display() {
 
 // Timer2 overflow ISR (1 Hz)
 ISR(TIMER2_OVF_vect) {
+    //switch when messuring via counter
     seconds++;
+    //minutes++;
     if (seconds >= 60) {
         seconds = 0;
         minutes++;
