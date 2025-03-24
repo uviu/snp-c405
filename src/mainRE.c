@@ -51,6 +51,13 @@ void update_display() {
     PORTD = (PORTD & ~0xE3) | hour_output;  // stunden anzeigen
 }
 
+void schaltsekunde() {
+    abweichung += 0.019;
+    if (abweichung >= 1.0) {
+        seconds++;
+        abweichung -= 1.0;
+    }
+}
 // timer2 overflow interrupt (1 sekunde)
 ISR(TIMER2_OVF_vect) {
     seconds++;
