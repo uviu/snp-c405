@@ -8,6 +8,7 @@ volatile uint8_t minutes = 30;    // minutenzähler
 volatile uint8_t hours = 12;      // stundenzähler
 volatile uint8_t brightness_stage = 0;  // helligkeitsstufe
 volatile uint8_t enter_sleep_flag = 0;  // schlafmodus flag
+volatile uint8_t abweichung = 0;
 
 const uint8_t brightness_levels[] = {254, 248, 156, 0};  // helligkeitsstufen
 
